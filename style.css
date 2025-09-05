@@ -1074,3 +1074,16 @@
 .menu .div {
   padding-top: 73px;  /* отступ равен высоте шапки */
 }
+.view-5 {
+  position: fixed;
+  bottom: 20px;       /* отступ от нижнего края */
+  right: 20px;        /* прижать к правому краю */
+  background: #000;   /* чёрный фон, как в макете */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 2000;      /* всегда поверх всего */
+  cursor: pointer;
+}
