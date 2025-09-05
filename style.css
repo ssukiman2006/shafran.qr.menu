@@ -1057,33 +1057,102 @@
 }
 
 .top-header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 433px !important;
-  height: 73px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 0 20px !important;
-  background: white !important;
-  z-index: 1000 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 433px !important;
+    height: 73px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 20px !important;
+    background: white !important;
+    z-index: 1000 !important;
 }
 
 /* чтобы основной контент не уезжал под шапку */
 .menu .div {
-  padding-top: 73px;  /* отступ равен высоте шапки */
+    padding-top: 73px;
+    /* отступ равен высоте шапки */
 }
+
 .view-5 {
-  position: fixed;
-  bottom: 20px;       /* отступ от нижнего края */
-  right: 20px;        /* прижать к правому краю */
-  background: #000;   /* чёрный фон, как в макете */
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: bold;
-  z-index: 2000;      /* всегда поверх всего */
-  cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    /* отступ от нижнего края */
+    right: 20px;
+    /* прижать к правому краю */
+    background: #000;
+    /* чёрный фон, как в макете */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 2000;
+    /* всегда поверх всего */
+    cursor: pointer;
+}
+
+/* Общий стиль для кругов категорий */
+.frame-8,
+.frame-9,
+.frame-10,
+.frame-11,
+.frame-12 {
+    width: 90px;
+    /* одинаковая ширина */
+    height: 90px;
+    /* одинаковая высота */
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    /* не переносить текст */
+}
+
+/* Текст в категориях */
+.text-wrapper-8,
+.text-wrapper-9,
+.text-wrapper-10,
+.text-wrapper-11,
+.text-wrapper-12 {
+    font-size: 10px;
+    /* уменьшенный размер */
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    /* если не влезает, обрезать с "..." */
+    overflow: hidden;
+    max-width: 80px;
+    /* чтобы текст не вылезал за круг */
+}
+
+/* Контейнер для категорий */
+.categories-container {
+    display: flex;
+    gap: 15px;
+    /* расстояние между кружками */
+    overflow-x: auto;
+    /* скролл только по горизонтали */
+    overflow-y: hidden;
+    /* запрет вертикального скролла */
+    white-space: nowrap;
+    /* чтобы элементы не переносились */
+    padding: 10px;
+    -webkit-overflow-scrolling: touch;
+    /* плавный скролл на телефоне */
+}
+
+/* Каждый элемент категории */
+.categories-container .frame-8,
+.categories-container .frame-9,
+.categories-container .frame-10,
+.categories-container .frame-11,
+.categories-container .frame-12 {
+    flex: 0 0 auto;
+    /* фиксируем ширину, чтобы не растягивались */
 }
