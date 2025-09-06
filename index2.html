@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мобильное меню</title>
+  <style>
+    /* Контейнер телефона */
+    .phone {
+      width: 433px;
+      height: 931px;
+      margin: 20px auto;
+      background: url('fone.png') no-repeat center/cover; /* твой фон */
+      position: relative;
+      overflow: hidden; /* ничего не вылазит за рамку */
+      border-radius: 30px; /* если фон с закруглениями */
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    /* Контент внутри */
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto; /* вертикальная прокрутка */
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+
+    /* Горизонтальные категории */
+    .categories {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px 0;
+      scrollbar-width: none; /* убираем полосу в Firefox */
+    }
+    .categories::-webkit-scrollbar {
+      display: none; /* убираем полосу в Chrome/Safari */
+    }
+    .category {
+      flex: 0 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    /* Блоки блюд */
+    .section {
+      margin-top: 20px;
+    }
+    .dish {
+      background: #fff;
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .dish img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .dish h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+    .dish p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone">
+    <div class="content">
+
+      <!-- Категории -->
+      <div class="categories">
+        <div class="category">Завтрак</div>
+        <div class="category">Закуски</div>
+        <div class="category">Салаты</div>
+        <div class="category">Вторые блюда</div>
+        <div class="category">Бургеры</div>
+      </div>
+
+      <!-- Секции с блюдами -->
+      <div class="section">
+        <div class="dish">
+          <img src="kasha.jpg" alt="Каша">
+          <h3>Каша рисовая</h3>
+          <p>Нежная каша из риса на молоке со сливочным маслом.</p>
+        </div>
+        <div class="dish">
+          <img src="lepeshka.jpg" alt="Лепешка">
+          <h3>Тандырная лепешка</h3>
+          <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
