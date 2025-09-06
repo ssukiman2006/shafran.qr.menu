@@ -119,6 +119,71 @@
             font-size: 14px;
             color: #555;
         }
+
+        /* Заголовок "Новинки" */
+        .new-items h2 {
+            font-family: "Inter-SemiBold", Helvetica;
+            font-size: 18px;
+            color: #fff;
+            margin: 20px 0 10px 10px;
+        }
+
+        /* Общая карточка */
+        .new-items .dish {
+            position: relative;
+            background: linear-gradient(135deg, #f5c445, #d8941f);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 10px;
+            color: #261e1d;
+            font-family: "Inter", sans-serif;
+            box-shadow: var(--container-shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Название блюда */
+        .new-items .dish h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Описание */
+        .new-items .dish p {
+            font-size: 14px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* Картинка справа */
+        .new-items .dish img {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Кнопка */
+        .new-items .dish .order-btn {
+            align-self: flex-start;
+            background: #5b3417;
+            color: #fff;
+            font-size: 14px;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .new-items .dish .order-btn:hover {
+            background: #3e2310;
+        }
     </style>
 </head>
 
@@ -135,7 +200,42 @@
         <!-- Контент -->
         <div class="content">
 
-            <!-- Категории -->
+            <section class="new-items">
+                <h2 class="text-wrapper">Новинки</h2>
+
+                <!-- Карточка блюда -->
+                <div class="dish">
+                    <img class="image-2" src="img/image-29.png" alt="Свекла с йогуртом" />
+                    <h3 class="text-wrapper-2">СВЕКЛА С ГРЕЧЕСКИМ ЙОГУРТОМ</h3>
+                    <p>
+                        рукола, свекла, йогурт, орех кедровый, соус терияки, <br />
+                        свит-чили, бальзамик крем/соус
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </div>
+
+                <!-- Карточка блюда -->
+                <div class="dish">
+                    <img class="image-3" src="img/image-28.png" alt="Салат с креветками" />
+                    <h3>САЛАТ С КРЕВЕТКАМИ И АВОКАДО</h3>
+                    <p>
+                        креветки, рукола, черри, лист салата, лолло россо, авокадо, апельсин, масло оливковое,
+                        лимонный сок, соус свит-чили, соевый соус
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </div>
+
+                <!-- Карточка блюда -->
+                <div class="dish">
+                    <img class="image-4" src="img/image-5.png" alt="Салат с кониной" />
+                    <h3>ТЕПЛЫЙ САЛАТ С КОНИНОЙ</h3>
+                    <p>
+                        вырезка конины, рукола, яйцо перепелиное, черри, огурец, красный лук, лист салата,
+                        соус терияки, соус бальзамический, майонез
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </div>
+            </section>
             <!-- КАТЕГОРИИ -->
             <section class="categories">
                 <div class="category">
