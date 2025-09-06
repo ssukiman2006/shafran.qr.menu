@@ -1,0 +1,190 @@
+/* Ограничиваем размер под мобильный макет */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  width: 433px;
+  height: 931px;
+  margin: auto;
+  background: #0c0c0c;
+  color: #fff;
+  overflow-y: scroll;
+}
+
+/* Верхняя панель */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 433px;
+  height: 73px;
+  background: rgba(15, 20, 30, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.location img {
+  width: 18px;
+  height: 18px;
+}
+
+.lang {
+  font-size: 14px;
+}
+
+/* Новинки */
+.new {
+  padding: 90px 15px 20px; /* отступ сверху, чтобы не закрывалось topbar */
+}
+
+.new h2 {
+  margin-bottom: 10px;
+}
+
+.promo-card {
+  background: linear-gradient(90deg, #d8a83d, #e5b64c);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.promo-text {
+  max-width: 55%;
+}
+
+.promo-text h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+}
+
+.promo-text p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #3a2d13;
+}
+
+.promo-text button {
+  background: #623c10;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.promo-card img {
+  width: 130px;
+  border-radius: 12px;
+}
+
+/* Категории */
+.categories {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 15px;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 70px;
+}
+
+.category img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 6px;
+}
+
+.category span {
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Блюда */
+.menu-section {
+  padding: 0 15px 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-header a {
+  color: #4cd137;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.dish-card {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.dish-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.dish-info h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.dish-info p {
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.time {
+  font-size: 12px;
+  color: orange;
+  margin-left: 5px;
+}
+
+.price {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: linear-gradient(90deg, #f5b25a, #e28a3d);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
