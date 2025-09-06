@@ -1,150 +1,219 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мобильное меню</title>
-  <style>
-    /* Контейнер телефона */
-    .phone {
-      width: 433px;
-      height: 931px;
-      margin: 20px auto;
-      background: url('img/fone.png') no-repeat center/cover; /* твой фон */
-      position: relative;
-      overflow: hidden; /* чтобы ничего не вылазило */
-      border-radius: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      font-family: sans-serif;
-      color: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мобильное меню</title>
+    <style>
+        /* Контейнер телефона */
+        .phone {
+            width: 433px;
+            height: 931px;
+            margin: 20px auto;
+            background: url('img/fone.png') no-repeat center/cover;
+            /* твой фон */
+            position: relative;
+            overflow: hidden;
+            /* чтобы ничего не вылазило */
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            font-family: sans-serif;
+            color: #fff;
+        }
 
-    /* Статичный верхний бар */
-    .header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 433px;
-      height: 73px;
-      background: rgba(15, 20, 30, 0.7); /* #0F141E с 70% opacity */
-      display: flex;
-      align-items: center;
-      padding: 0 15px;
-      box-sizing: border-box;
-      z-index: 10;
-    }
-    .header img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-    .header span {
-      font-size: 16px;
-      font-weight: 500;
-    }
+        /* Статичный верхний бар */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 433px;
+            height: 73px;
+            background: rgba(15, 20, 30, 0.7);
+            /* #0F141E с 70% opacity */
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
 
-    /* Контент */
-    .content {
-      position: absolute;
-      top: 73px; /* ниже статичного окна */
-      left: 0;
-      width: 100%;
-      height: calc(100% - 73px);
-      overflow-y: auto; /* вертикальная прокрутка */
-      padding: 20px 10px;
-      box-sizing: border-box;
-    }
+        .header img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
 
-    /* Горизонтальные категории */
-    .categories {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px 0;
-      scrollbar-width: none;
-    }
-    .categories::-webkit-scrollbar {
-      display: none;
-    }
-    .category {
-      flex: 0 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 8px 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-size: 14px;
-      font-weight: 500;
-      text-align: center;
-      cursor: pointer;
-      color: #000;
-    }
+        .header span {
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-    /* Блоки блюд */
-    .section {
-      margin-top: 20px;
-    }
-    .dish {
-      background: #fff;
-      border-radius: 16px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      color: #000;
-    }
-    .dish img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-    .dish h3 {
-      margin: 0 0 5px;
-      font-size: 18px;
-    }
-    .dish p {
-      margin: 0;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
+        /* Контент */
+        .content {
+            position: absolute;
+            top: 73px;
+            /* ниже статичного окна */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 73px);
+            overflow-y: auto;
+            /* вертикальная прокрутка */
+            padding: 20px 10px;
+            box-sizing: border-box;
+        }
+
+        /* Горизонтальные категории */
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category {
+            flex: 0 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 8px 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            color: #000;
+        }
+
+        /* Блоки блюд */
+        .section {
+            margin-top: 20px;
+        }
+
+        .dish {
+            background: #fff;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+
+        .dish img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .dish h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+
+        .dish p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="phone">
+    <div class="phone">
 
-    <!-- Верхняя панель -->
-    <div class="header">
-      <img src="location.png" alt="Место">
-      <span>Алматы</span>
-    </div>
-
-    <!-- Контент -->
-    <div class="content">
-
-      <!-- Категории -->
-      <div class="categories">
-        <div class="category">Завтрак</div>
-        <div class="category">Закуски</div>
-        <div class="category">Салаты</div>
-        <div class="category">Вторые блюда</div>
-        <div class="category">Бургеры</div>
-      </div>
-
-      <!-- Секции с блюдами -->
-      <div class="section">
-        <div class="dish">
-          <img src="kasha.png" alt="Каша">
-          <h3>Каша рисовая</h3>
-          <p>Нежная каша из риса на молоке со сливочным маслом.</p>
+        <!-- Верхняя панель -->
+        <div class="header">
+            <img src="location.png" alt="Место">
+            <span>Алматы</span>
         </div>
-        <div class="dish">
-          <img src="lepeshka.png" alt="Лепешка">
-          <h3>Тандырная лепешка</h3>
-          <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
-        </div>
-      </div>
 
+        <!-- Контент -->
+        <div class="content">
+
+            <!-- Категории -->
+            <!-- КАТЕГОРИИ -->
+            <section class="categories">
+                <div class="category">
+                    <img src="img/image-24.png" alt="Завтрак" />
+                    <span>Завтрак</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-19.png" alt="Закуски" />
+                    <span>Закуски</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-21.png" alt="Салаты" />
+                    <span>Салаты</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-23.png" alt="Вторые блюда" />
+                    <span>Вторые блюда</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-7-3.png" alt="Бургеры" />
+                    <span>Бургеры</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-22.png" alt="Закуски" />
+                    <span>Закуски</span>
+                </div>
+                <div class="category">
+                    <img src="img/image.png" alt="Гарниры/соусы" />
+                    <span>Гарниры/соусы</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-7-4.png" alt="Первые блюда" />
+                    <span>Первые блюда</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-7.png" alt="Банкетные блюда" />
+                    <span>Банкетные блюда</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-7-5.png" alt="Лагман" />
+                    <span>Лагман</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-7-2.png" alt="Гриль" />
+                    <span>Гриль</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-25-2.png" alt="Пицца" />
+                    <span>Пицца</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-25.png" alt="Роллы" />
+                    <span>Роллы</span>
+                </div>
+                <div class="category">
+                    <img src="img/image-26.png" alt="Десерты" />
+                    <span>Десерты</span>
+                </div>
+            </section>
+
+
+            <!-- Секции с блюдами -->
+            <div class="section">
+                <div class="dish">
+                    <img src="kasha.png" alt="Каша">
+                    <h3>Каша рисовая</h3>
+                    <p>Нежная каша из риса на молоке со сливочным маслом.</p>
+                </div>
+                <div class="dish">
+                    <img src="lepeshka.png" alt="Лепешка">
+                    <h3>Тандырная лепешка</h3>
+                    <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
 
 </body>
+
 </html>
