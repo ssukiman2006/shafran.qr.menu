@@ -130,42 +130,49 @@
 
         /* Общая карточка */
         .new-items .dish {
-            position: relative;
+            display: flex;
+            align-items: flex-start;
+            /* картинка сверху, текст тянется вниз */
             background: linear-gradient(135deg, #f5c445, #d8941f);
             border-radius: 12px;
-            padding: 15px;
             margin: 15px 10px;
-            color: #261e1d;
-            font-family: "Inter", sans-serif;
             box-shadow: var(--container-shadow);
+            overflow: hidden;
+            /* чтобы картинка вплотную к краю */
+        }
+
+        /* картинка слева, без отступа */
+        .new-items .dish img {
+            width: 120px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 0 0 12px;
+            /* только слева закругляем */
+            flex-shrink: 0;
+            /* не даём сжиматься */
+        }
+
+        /* текстовый блок справа */
+        .new-items .dish .dish-text {
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
+            flex: 1;
         }
 
-        /* Название блюда */
+        /* заголовок по словам вниз */
         .new-items .dish h3 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
+            color: #261e1d;
             margin: 0;
+            white-space: pre-line;
+            /* перенос по пробелам/ \n */
+            word-break: break-word;
+            /* если длинное слово */
         }
 
-        /* Описание */
-        .new-items .dish p {
-            font-size: 14px;
-            line-height: 1.3;
-            margin: 0;
-        }
-
-        /* Картинка справа */
-        .new-items .dish img {
-            align-self: flex-end;
-            margin-top: auto;
-            width: 120px;
-            height: auto;
-            border-radius: 60px 0 0 60px;
-            object-fit: cover;
-        }
 
         /* Кнопка */
         .new-items .dish .order-btn {
