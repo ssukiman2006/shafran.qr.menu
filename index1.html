@@ -1,125 +1,131 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Меню ресторана</title>
-
+    
     <!-- Подключение стилей -->
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+    <!-- ОБЕРТКА МЕНЮ -->
     <div class="menu">
+        <div class="container">
 
-        <!-- 🔝 Шапка -->
-        <header class="top-header">
-            <div class="view-6">
-                <img class="image-21" src="img/image-8.png" alt="Локация" />
-                <div class="text-wrapper-17">Almaty</div>
-                <img class="vector-3" src="img/vector-4.svg" alt="Иконка выбора" />
+            <!-- ФОН/ШАПКА -->
+            <div class="header-images">
+                <img src="img/image-31.png" alt="фон" class="image" />
+                <img src="img/image-32.png" alt="фон" class="img" />
             </div>
-            <div class="view-7">
-                <img class="vector-4" src="img/vector-5.svg" alt="Язык" />
-                <div class="text-wrapper-18">Русский</div>
-            </div>
-        </header>
 
-        <!-- 🛒 Корзина -->
-        <div class="cart">
-            <div class="text-wrapper-16">0 ТГ</div>
-            <img class="vector-2" src="img/vector.svg" alt="Корзина" />
+            <!-- БЛОК НОВИНКИ -->
+            <section class="new-items">
+                <h2 class="section-title">Новинки</h2>
+
+                <!-- Блюдо 1 -->
+                <article class="dish">
+                    <img src="img/image-29.png" alt="свекла с йогуртом" class="dish-img" />
+                    <h3 class="dish-title">СВЕКЛА С ГРЕЧЕСКИМ ЙОГУРТОМ</h3>
+                    <p class="dish-desc">
+                        рукола, свекла, йогурт, кедровый орех, соус терияки, 
+                        свит-чили, бальзамический крем/соус
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </article>
+
+                <!-- Блюдо 2 -->
+                <article class="dish">
+                    <img src="img/image-28.png" alt="салат с креветками" class="dish-img" />
+                    <h3 class="dish-title">САЛАТ С КРЕВЕТКАМИ И АВОКАДО</h3>
+                    <p class="dish-desc">
+                        креветки, рукола, черри, лолло россо, авокадо, апельсин, 
+                        оливковое масло, лимонный сок, соус свит-чили, соевый соус
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </article>
+
+                <!-- Блюдо 3 -->
+                <article class="dish">
+                    <img src="img/image-5.png" alt="теплый салат с кониной" class="dish-img" />
+                    <h3 class="dish-title">ТЕПЛЫЙ САЛАТ С КОНИНОЙ</h3>
+                    <p class="dish-desc">
+                        вырезка конины, рукола, яйцо перепелиное, черри, огурец, красный лук, 
+                        салат, соус терияки, бальзамический соус, майонез
+                    </p>
+                    <button class="order-btn">Заказать сейчас</button>
+                </article>
+            </section>
+
+            <!-- КАТЕГОРИИ -->
+            <nav class="categories">
+                <div class="category"><img src="img/image-24.png" /><span>Завтрак</span></div>
+                <div class="category"><img src="img/image-19.png" /><span>Закуски</span></div>
+                <div class="category"><img src="img/image-21.png" /><span>Салаты</span></div>
+                <div class="category"><img src="img/image-23.png" /><span>Вторые блюда</span></div>
+                <div class="category"><img src="img/image-7-3.png" /><span>Бургеры</span></div>
+                <div class="category"><img src="img/image-22.png" /><span>Закуски</span></div>
+                <div class="category"><img src="img/image.png" /><span>Гарниры/соусы</span></div>
+                <div class="category"><img src="img/image-7-4.png" /><span>Первые блюда</span></div>
+                <div class="category"><img src="img/image-7.png" /><span>Банкетные блюда</span></div>
+                <div class="category"><img src="img/image-7-5.png" /><span>Лагман</span></div>
+                <div class="category"><img src="img/image-7-2.png" /><span>Гриль</span></div>
+                <div class="category"><img src="img/image-25-2.png" /><span>Пицца</span></div>
+                <div class="category"><img src="img/image-25.png" /><span>Роллы</span></div>
+                <div class="category"><img src="img/image-26.png" /><span>Десерты</span></div>
+            </nav>
+
+            <!-- РАЗДЕЛ ЗАВТРАК -->
+            <section class="breakfast">
+                <header>
+                    <h2>Завтрак</h2>
+                    <a href="#">Смотреть все</a>
+                </header>
+
+                <!-- Пример карточек завтрака -->
+                <article class="dish">
+                    <img src="img/image-11.png" alt="Каша рисовая" />
+                    <h3>КАША РИСОВАЯ</h3>
+                    <p>Нежная каша из риса на молоке с маслом. Сытное и полезное блюдо для завтрака.</p>
+                    <span class="time">20 мин</span>
+                </article>
+
+                <article class="dish">
+                    <img src="img/image-9.png" alt="Тандырная лепешка" />
+                    <h3>ТАНДЫРНАЯ ЛЕПЕШКА</h3>
+                    <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
+                </article>
+
+                <article class="dish">
+                    <img src="img/rectangle-4.png" alt="Чесночный хлеб" />
+                    <h3>ЧЕСНОЧНЫЙ ХЛЕБ</h3>
+                    <p>Хрустящий чесночный хлеб с маслом и зеленью.</p>
+                </article>
+            </section>
+
+            <!-- ФУТЕР/ПАНЕЛЬ -->
+            <footer class="cart-info">
+                <span>0 ТГ</span>
+                <img src="img/vector.svg" alt="корзина" />
+            </footer>
+
+            <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+            <header class="top-header">
+                <div class="location">
+                    <img src="img/image-8.png" alt="иконка города" />
+                    <span>Almaty</span>
+                    <img src="img/vector-4.svg" alt="стрелка" />
+                </div>
+                <div class="language">
+                    <img src="img/vector-5.svg" alt="иконка языка" />
+                    <span>Русский</span>
+                </div>
+            </header>
+
         </div>
-
-        <!-- 🌟 Блок новинок -->
-        <section class="new-items">
-            <h2 class="text-wrapper">Новинки</h2>
-
-            <!-- Карточка блюда -->
-            <div class="dish">
-                <img class="image-2" src="img/image-29.png" alt="Свекла с йогуртом" />
-                <h3 class="text-wrapper-2">СВЕКЛА С ГРЕЧЕСКИМ ЙОГУРТОМ</h3>
-                <p>
-                    рукола, свекла, йогурт, орех кедровый, соус терияки, <br />
-                    свит-чили, бальзамик крем/соус
-                </p>
-                <button class="order-btn">Заказать сейчас</button>
-            </div>
-
-            <!-- Карточка блюда -->
-            <div class="dish">
-                <img class="image-3" src="img/image-28.png" alt="Салат с креветками" />
-                <h3>САЛАТ С КРЕВЕТКАМИ И АВОКАДО</h3>
-                <p>
-                    креветки, рукола, черри, лист салата, лолло россо, авокадо, апельсин, масло оливковое,
-                    лимонный сок, соус свит-чили, соевый соус
-                </p>
-                <button class="order-btn">Заказать сейчас</button>
-            </div>
-
-            <!-- Карточка блюда -->
-            <div class="dish">
-                <img class="image-4" src="img/image-5.png" alt="Салат с кониной" />
-                <h3>ТЕПЛЫЙ САЛАТ С КОНИНОЙ</h3>
-                <p>
-                    вырезка конины, рукола, яйцо перепелиное, черри, огурец, красный лук, лист салата,
-                    соус терияки, соус бальзамический, майонез
-                </p>
-                <button class="order-btn">Заказать сейчас</button>
-            </div>
-        </section>
-
-        <!-- 📌 Категории -->
-        <section class="categories">
-            <div class="category"><img src="img/image-24.png" alt="Завтрак" /><span>Завтрак</span></div>
-            <div class="category"><img src="img/image-19.png" alt="Закуски" /><span>Закуски</span></div>
-            <div class="category"><img src="img/image-21.png" alt="Салаты" /><span>Салаты</span></div>
-            <div class="category"><img src="img/image-23.png" alt="Вторые блюда" /><span>Вторые блюда</span></div>
-            <div class="category"><img src="img/image-7-3.png" alt="Бургеры" /><span>Бургеры</span></div>
-            <div class="category"><img src="img/image-22.png" alt="Закуски" /><span>Закуски</span></div>
-            <div class="category"><img src="img/image.png" alt="Гарниры/соусы" /><span>Гарниры/соусы</span></div>
-            <div class="category"><img src="img/image-7-4.png" alt="Первые блюда" /><span>Первые блюда</span></div>
-            <div class="category"><img src="img/image-7.png" alt="Банкетные блюда" /><span>Банкетные блюда</span></div>
-            <div class="category"><img src="img/image-7-5.png" alt="Лагман" /><span>Лагман</span></div>
-            <div class="category"><img src="img/image-7-2.png" alt="Гриль" /><span>Гриль</span></div>
-            <div class="category"><img src="img/image-25-2.png" alt="Пицца" /><span>Пицца</span></div>
-            <div class="category"><img src="img/image-25.png" alt="Роллы" /><span>Роллы</span></div>
-            <div class="category"><img src="img/image-26.png" alt="Десерты" /><span>Десерты</span></div>
-        </section>
-
-        <!-- 🥣 Пример блюд в категории -->
-        <section class="category-items">
-            <div class="section-header">
-                <h2>Завтрак</h2>
-                <a href="#">Смотреть все</a>
-            </div>
-
-            <div class="dish">
-                <img src="img/image-11.png" alt="Каша рисовая" />
-                <h3>КАША РИСОВАЯ</h3>
-                <p>
-                    Нежная каша из риса на молоке с добавлением сливочного масла. Сытное и полезное блюдо для
-                    вкусного завтрака.
-                </p>
-                <span>20 мин</span>
-            </div>
-
-            <div class="dish">
-                <img src="img/image-9.png" alt="Тандырная лепешка" />
-                <h3>ТАНДЫРНАЯ ЛЕПЕШКА</h3>
-                <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
-            </div>
-
-            <div class="dish">
-                <img src="img/rectangle-4.png" alt="Чесночный хлеб" />
-                <h3>ЧЕСНОЧНЫЙ ХЛЕБ</h3>
-                <p>Чесночный хлеб с маслом и зеленью — ароматная закуска с хрустящей корочкой.</p>
-            </div>
-        </section>
     </div>
-</body>
 
+</body>
 </html>
