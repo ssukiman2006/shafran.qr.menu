@@ -129,29 +129,36 @@
         }
 
         /* Общая карточка */
-        /* Общая карточка */
         .new-items .dish {
             display: flex;
-            justify-content: space-between;
-            /* текст слева, картинка справа */
-            align-items: flex-start;
+            align-items: stretch;
+            /* чтобы картинка тянулась на всю высоту */
             background: linear-gradient(135deg, #f5c445, #d8941f);
             border-radius: 12px;
             margin: 15px 10px;
             box-shadow: var(--container-shadow);
             overflow: hidden;
-            /* чтобы картинка вплотную к краю */
+            padding: 0;
+            /* <--- убери внутренние отступы */
+            gap: 0;
+            /* <--- убери промежутки между текстом и картинкой */
         }
 
         /* картинка справа, без отступа */
         .new-items .dish img {
-            width: 120px;
+            width: 140px;
+            /* можно чуть увеличить, если щель остаётся */
             height: 100%;
             object-fit: cover;
             border-radius: 0 12px 12px 0;
-            /* только справа закругляем */
+            /* скругление только справа */
             flex-shrink: 0;
-            /* не даём сжиматься */
+            margin: 0;
+            /* <--- чтобы не было доп. отступа */
+            padding: 0;
+            /* <--- вдруг тут был паддинг */
+            display: block;
+            /* <--- убирает лишние inline-отступы */
         }
 
         /* текстовый блок слева */
@@ -159,20 +166,30 @@
             padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            justify-content: space-between;
+            gap: 6px;
             flex: 1;
         }
 
         /* заголовок по словам вниз */
         .new-items .dish h3 {
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             color: #261e1d;
             margin: 0;
             white-space: pre-line;
+            line-height: 1.2;
             /* перенос по <br> */
             word-break: break-word;
             /* если длинное слово */
+        }
+
+        .new-items .dish p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #261e1d;
+            margin: 0;
+            line-height: 1.4;
         }
 
 
@@ -236,13 +253,13 @@
 
                 <!-- Карточка блюда -->
                 <div class="dish">
-                    <img class="image-4" src="img/image-5.png" alt="Салат с кониной" />
                     <h3>ТЕПЛЫЙ САЛАТ С КОНИНОЙ</h3>
                     <p>
                         вырезка конины, рукола, яйцо перепелиное, черри, огурец, красный лук, лист салата,
                         соус терияки, соус бальзамический, майонез
                     </p>
                     <button class="order-btn">Заказать сейчас</button>
+                    <img class="image-4" src="img/image-5.png" alt="Салат с кониной" />
                 </div>
             </section>
             <!-- КАТЕГОРИИ -->
