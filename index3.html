@@ -1,355 +1,263 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мобильное меню</title>
-    <style>
-        /* Вставил твой CSS (немного подчищен для автономности) */
-        :root {
-            --container-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 2px 3px 4px rgba(0, 0, 0, 0.09), 6px 7px 5px rgba(0, 0, 0, 0.05);
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мобильное меню — тест</title>
 
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
+  <style>
+    /* Вставил твой CSS (немного подчищен для автономности) */
+    :root {
+      --container-shadow: 1px 1px 2px rgba(0,0,0,0.1), 2px 3px 4px rgba(0,0,0,0.09), 6px 7px 5px rgba(0,0,0,0.05);
+    }
 
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    html,body { height:100%; margin:0; }
+    body {
+      background: #0c0c0c;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:20px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        body {
-            background: #0c0c0c;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    /* Контейнер телефона */
+    .phone {
+      width: 433px;
+      height: 931px;
+      background: url('img/fone.png') no-repeat center/cover;
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      color: #fff;
+    }
 
-        /* Контейнер телефона */
-        .phone {
-            width: 433px;
-            height: 931px;
-            background: url('img/fone.png') no-repeat center/cover;
-            position: relative;
-            overflow: hidden;
-            border-radius: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            color: #fff;
-        }
+    /* Статичный верхний бар */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 433px;
+      height: 73px;
+      background: rgba(15, 20, 30, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    .header .left { display:flex; align-items:center; gap:10px; }
+    .header img { width: 18px; height: 18px; display:block; }
+    .header .loc { font-size:16px; font-weight:500; color:#bfe9a7; }
+    .header .lang { color:#fff; font-size:14px; }
 
-        /* Статичный верхний бар */
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 433px;
-            height: 73px;
-            background: rgba(15, 20, 30, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-            box-sizing: border-box;
-            z-index: 10;
-        }
+    /* Контент (скролл внутри рамки) */
+    .content {
+      position: absolute;
+      top: 73px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 73px);
+      overflow-y: auto;
+      padding: 18px 14px;
+      box-sizing: border-box;
+    }
 
-        .header .left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    /* Заголовок "Новинки" */
+    .new-items h2 {
+      font-family: "Inter-SemiBold", Helvetica, Arial;
+      font-size: 18px;
+      color: #fff;
+      margin: 6px 0 12px 2px;
+    }
 
-        .header img {
-            width: 18px;
-            height: 18px;
-            display: block;
-        }
+    /* Горизонтальные категории (пример) */
+    .categories {
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      padding:10px 0 18px 0;
+      margin-bottom: 8px;
+    }
+    .categories::-webkit-scrollbar{ display:none; }
+    .category {
+      flex:0 0 auto;
+      width:70px;
+      text-align:center;
+      color:#fff;
+      font-size:12px;
+    }
+    .category img {
+      width:60px; height:60px; border-radius:50%; object-fit:cover; display:block; margin:0 auto 6px;
+      background:#fff;
+    }
 
-        .header .loc {
-            font-size: 16px;
-            font-weight: 500;
-            color: #bfe9a7;
-        }
+    /* Секция */
+    .section { margin-top: 6px; padding-bottom: 40px; }
 
-        .header .lang {
-            color: #fff;
-            font-size: 14px;
-        }
+    /* Карточка новинки (соответствует твоему CSS) */
+    .dish {
+      width: 347px;
+      height: 224px;
+      display: flex;
+      align-items: stretch;
+      background: linear-gradient(112deg, #a1e045 0%, #577a25 100%);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--container-shadow);
+      margin: 12px 0;
+      box-sizing: border-box;
+      color: #261e1d;
+    }
 
-        /* Контент (скролл внутри рамки) */
-        .content {
-            position: absolute;
-            top: 73px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 73px);
-            overflow-y: auto;
-            padding: 18px 14px;
-            box-sizing: border-box;
-        }
+    .dish-content {
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      flex: 1;
+    }
 
-        /* Заголовок "Новинки" */
-        .new-items h2 {
-            font-family: "Inter-SemiBold", Helvetica, Arial;
-            font-size: 18px;
-            color: #fff;
-            margin: 6px 0 12px 2px;
-        }
+    .dish-title {
+      margin: 0;
+      font-family: "Inter-SemiBold", Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #261e1d;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
 
-        /* Горизонтальные категории (пример) */
-        .categories {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 10px 0 18px 0;
-            margin-bottom: 8px;
-        }
+    .dish-line { width:100%; height:2px; opacity:.18; background: rgba(0,0,0,0.06); display:block; }
 
-        .categories::-webkit-scrollbar {
-            display: none;
-        }
+    .dish-desc {
+      margin:0;
+      font-family: "Inter-Regular", Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #271e1e;
+      line-height: 1.3;
+    }
 
-        .category {
-            flex: 0 0 auto;
-            width: 70px;
-            text-align: center;
-            color: #fff;
-            font-size: 12px;
-        }
+    .dish-actions { display:flex; align-items:center; gap:8px; }
 
-        .category img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            margin: 0 auto 6px;
-            background: #fff;
-        }
+    .order-btn {
+      background: linear-gradient(45deg,#7d231f 0%,#dc1814 100%);
+      color:#fff;
+      border:none;
+      padding:8px 14px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+    }
 
-        /* Секция */
-        .section {
-            margin-top: 6px;
-            padding-bottom: 40px;
-        }
+    /* картинка справа вплотную */
+    .dish-image {
+      width: 158px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0 10px 10px 0;
+      flex-shrink: 0;
+      display:block;
+      margin:0;
+      padding:0;
+    }
 
-        /* Карточка новинки (соответствует твоему CSS) */
-        .dish {
-            width: 347px;
-            height: 224px;
-            display: flex;
-            align-items: stretch;
-            background: linear-gradient(112deg, #a1e045 0%, #577a25 100%);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--container-shadow);
-            margin: 12px 0;
-            box-sizing: border-box;
-            color: #261e1d;
-        }
-
-        .dish-content {
-            padding: 18px 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .dish-title {
-            margin: 0;
-            font-family: "Inter-SemiBold", Arial, Helvetica, sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #261e1d;
-            line-height: 1.05;
-            letter-spacing: 0;
-        }
-
-        .dish-line {
-            width: 100%;
-            height: 2px;
-            opacity: .18;
-            background: rgba(0, 0, 0, 0.06);
-            display: block;
-        }
-
-        .dish-desc {
-            margin: 0;
-            font-family: "Inter-Regular", Arial, Helvetica, sans-serif;
-            font-size: 11px;
-            color: #271e1e;
-            line-height: 1.3;
-        }
-
-        .dish-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .order-btn {
-            background: linear-gradient(45deg, #7d231f 0%, #dc1814 100%);
-            color: #fff;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* картинка справа вплотную */
-        .dish-image {
-            width: 158px;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0 10px 10px 0;
-            flex-shrink: 0;
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Доп стили: мобильный скролл, внешний отступ */
-        .spacer {
-            height: 12px;
-        }
-    </style>
+    /* Доп стили: мобильный скролл, внешний отступ */
+    .spacer { height:12px; }
+  </style>
 </head>
-
 <body>
 
-    <div class="phone">
+  <div class="phone">
 
-        <!-- Верхняя панель -->
-        <div class="header">
-            <img src="location.png" alt="Место">
-            <span>Алматы</span>
-        </div>
-
-        <!-- Контент -->
-        <div class="content">
-
-            <section class="new-items">
-                <h2 class="text-wrapper">Новинки</h2>
-
-                <!-- Карточка блюда -->
-                <!-- Новинка — карточка -->
-                <article class="dish">
-                    <div class="dish-content">
-                        <!-- Заголовок: можно ставить <br> чтобы переносить слова вниз -->
-                        <h3 class="dish-title">
-                            СВЕКЛА<br />
-                            С<br />
-                            ГРЕЧЕСКИМ<br />
-                            ЙОГУРТОМ
-                        </h3>
-                        <img class="dish-image" src="img/image-29.png" alt="Свекла с йогуртом" />
-
-                        <!-- Разделитель (линия) -->
-                        <svg class="dish-line" width="100%" height="2" viewBox="0 0 100 2" preserveAspectRatio="none">
-                            <rect width="100%" height="2" fill="rgba(0,0,0,0.08)"></rect>
-                        </svg>
-
-                        <!-- Описание -->
-                        <p class="dish-desc">
-                            рукола, свекла, йогурт, орех кедровый, соус терияки,
-                            свит-чили, бальзамик крем/соус
-                        </p>
-
-                        <!-- Кнопка -->
-                        <div class="dish-actions">
-                            <button class="order-btn">Заказать сейчас</button>
-                        </div>
-                    </div>
-
-                </article>
-
-                <!-- КАТЕГОРИИ -->
-                <section class="categories">
-                    <div class="category">
-                        <img src="img/image-24.png" alt="Завтрак" />
-                        <span>Завтрак</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-19.png" alt="Закуски" />
-                        <span>Закуски</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-21.png" alt="Салаты" />
-                        <span>Салаты</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-23.png" alt="Вторые блюда" />
-                        <span>Вторые блюда</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-7-3.png" alt="Бургеры" />
-                        <span>Бургеры</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-22.png" alt="Закуски" />
-                        <span>Закуски</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image.png" alt="Гарниры/соусы" />
-                        <span>Гарниры/соусы</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-7-4.png" alt="Первые блюда" />
-                        <span>Первые блюда</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-7.png" alt="Банкетные блюда" />
-                        <span>Банкетные блюда</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-7-5.png" alt="Лагман" />
-                        <span>Лагман</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-7-2.png" alt="Гриль" />
-                        <span>Гриль</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-25-2.png" alt="Пицца" />
-                        <span>Пицца</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-25.png" alt="Роллы" />
-                        <span>Роллы</span>
-                    </div>
-                    <div class="category">
-                        <img src="img/image-26.png" alt="Десерты" />
-                        <span>Десерты</span>
-                    </div>
-                </section>
-
-
-                <!-- Секции с блюдами -->
-                <div class="section">
-                    <div class="dish">
-                        <img src="img/image-11.png" alt="Каша">
-                        <h3>Каша рисовая</h3>
-                        <p>Нежная каша из риса на молоке со сливочным маслом.</p>
-                    </div>
-                    <div class="dish">
-                        <img src="img/image-9" alt="Лепешка">
-                        <h3>Тандырная лепешка</h3>
-                        <p>Свежевыпеченный хлеб с ароматной корочкой.</p>
-                    </div>
-                </div>
-
-        </div>
+    <!-- верхняя панель -->
+    <div class="header">
+      <div class="left">
+        <img src="img/location.png" alt="место">
+        <div class="loc">Almaty ▾</div>
+      </div>
+      <div class="lang">Русский ▾</div>
     </div>
 
-</body>
+    <!-- контент -->
+    <div class="content">
 
+      <!-- Новинки -->
+      <section class="new-items">
+        <h2>Новинки</h2>
+
+        <!-- карточка (пример) -->
+        <article class="dish">
+          <div class="dish-content">
+            <h3 class="dish-title">
+              СВЕКЛА<br/>С<br/>ГРЕЧЕСКИМ<br/>ЙОГУРТОМ
+            </h3>
+
+            <!-- линия-разделитель -->
+            <span class="dish-line" aria-hidden="true"></span>
+
+            <p class="dish-desc">
+              рукола, свекла, йогурт, орех кедровый, соус терияки,<br/>
+              свит-чили, бальзамик крем/соус
+            </p>
+
+            <div class="dish-actions">
+              <button class="order-btn">Заказать сейчас</button>
+            </div>
+          </div>
+
+          <!-- картинка справа (вплотную) -->
+          <img class="dish-image" src="img/image-29.png" alt="Свекла с йогуртом">
+        </article>
+
+        <!-- можешь дублировать карточку для других новинок -->
+      </section>
+
+      <!-- категории (пример) -->
+      <div class="categories">
+        <div class="category"><img src="img/image-24.png" alt=""><span>Завтрак</span></div>
+        <div class="category"><img src="img/image-19.png" alt=""><span>Закуски</span></div>
+        <div class="category"><img src="img/image-21.png" alt=""><span>Салаты</span></div>
+        <div class="category"><img src="img/image-23.png" alt=""><span>Вторые</span></div>
+        <div class="category"><img src="img/image-7-3.png" alt=""><span>Бургеры</span></div>
+      </div>
+
+      <!-- секция с блюдами (пример) -->
+      <section class="section">
+        <div class="dish" style="background:#fff; color:#000;">
+          <div class="dish-content" style="padding:12px;">
+            <div>
+              <h3 style="font-size:16px; margin:0;">КАША РИСОВАЯ</h3>
+              <p style="font-size:12px; color:#555; margin:6px 0 0;">Нежная каша из риса на молоке с добавлением сливочного масла.</p>
+            </div>
+            <div class="dish-actions">
+              <span style="font-weight:700;">20 мин</span>
+            </div>
+          </div>
+          <img class="dish-image" src="img/kasha.png" alt="Каша">
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="dish" style="background:#fff; color:#000;">
+          <div class="dish-content" style="padding:12px;">
+            <div>
+              <h3 style="font-size:16px; margin:0;">ТАНДЫРНАЯ ЛЕПЕШКА</h3>
+              <p style="font-size:12px; color:#555; margin:6px 0 0;">Свежевыпеченный хлеб с ароматной корочкой.</p>
+            </div>
+            <div class="dish-actions"></div>
+          </div>
+          <img class="dish-image" src="img/lepyoshka.png" alt="Лепешка">
+        </div>
+
+      </section>
+
+    </div> <!-- /.content -->
+  </div> <!-- /.phone -->
+
+</body>
 </html>
