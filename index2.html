@@ -129,10 +129,12 @@
         }
 
         /* Общая карточка */
+        /* Общая карточка */
         .new-items .dish {
             display: flex;
+            justify-content: space-between;
+            /* текст слева, картинка справа */
             align-items: flex-start;
-            /* картинка сверху, текст тянется вниз */
             background: linear-gradient(135deg, #f5c445, #d8941f);
             border-radius: 12px;
             margin: 15px 10px;
@@ -141,20 +143,20 @@
             /* чтобы картинка вплотную к краю */
         }
 
-        /* картинка слева, без отступа */
+        /* картинка справа, без отступа */
         .new-items .dish img {
             width: 120px;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px 0 0 12px;
-            /* только слева закругляем */
+            border-radius: 0 12px 12px 0;
+            /* только справа закругляем */
             flex-shrink: 0;
             /* не даём сжиматься */
         }
 
-        /* текстовый блок справа */
+        /* текстовый блок слева */
         .new-items .dish .dish-text {
-            padding: 10px;
+            padding: 12px;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -168,10 +170,11 @@
             color: #261e1d;
             margin: 0;
             white-space: pre-line;
-            /* перенос по пробелам/ \n */
+            /* перенос по <br> */
             word-break: break-word;
             /* если длинное слово */
         }
+
 
 
         /* Кнопка */
