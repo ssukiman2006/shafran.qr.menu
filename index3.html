@@ -152,9 +152,11 @@
             margin: 12px 0;
             box-sizing: border-box;
             color: #261e1d;
+            position: relative;
         }
 
         .dish-content {
+            width: 166px;
             padding: 18px 16px;
             display: flex;
             flex-direction: column;
@@ -175,7 +177,7 @@
 
         .dish-line {
             width: 100%;
-            height: 2px;
+            height: 5px;
             opacity: .18;
             background: rgba(0, 0, 0, 0.06);
             display: block;
@@ -207,7 +209,8 @@
 
         /* картинка справа вплотную */
         .dish-image {
-            width: 100px;
+            position: absolute;
+            width: 158px;
             height: 100%;
             object-fit: cover;
             border-radius: 0 10px 10px 0;
@@ -244,6 +247,8 @@
                 <!-- Новинка — карточка -->
                 <article class="dish">
                     <div class="dish-content">
+                        <!-- Картинка справа (вплотную к правому краю) -->
+                        <img class="dish-image" src="img/image-29.png" alt="Свекла с йогуртом" />
                         <!-- Заголовок: можно ставить <br> чтобы переносить слова вниз -->
                         <h3 class="dish-title">
                             СВЕКЛА<br />
@@ -269,8 +274,6 @@
                         </div>
                     </div>
 
-                    <!-- Картинка справа (вплотную к правому краю) -->
-                    <img class="dish-image" src="img/image-29.png" alt="Свекла с йогуртом" />
                 </article>
 
                 <!-- КАТЕГОРИИ -->
